@@ -5,11 +5,11 @@ __author__ = 'Tony Beltramelli - www.tonybeltramelli.com'
 
 import tensorflow as tf
 #sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
-sess = tf.Session(config=tf.ConfigProto(
+sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(
          log_device_placement=True,
          inter_op_parallelism_threads=1,
          intra_op_parallelism_threads=1,
-         gpu_options=tf.GPUOptions(
+         gpu_options=tf.compat.v1.GPUOptions(
                  allow_growth=True,
                  visible_device_list="0"
                  )
