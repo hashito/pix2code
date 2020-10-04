@@ -1,0 +1,6 @@
+!git clone https://github.com/hashito/pix2code.git
+!cd pix2code && pip install -r requirements.v3.txt
+!cd pix2code && source testvenv/bin/activate && cd datasets && zip -F pix2code_datasets.zip --out datasets.zip && unzip datasets.zip
+!cd pix2code/model && ./build_datasets.py ../datasets/web/all_data && ./convert_imgs_to_arrays.py ../datasets/web/training_set ../datasets/web/training_features
+!mkdir -p pix2code/bin/bash
+!cd pix2code && mkdir -p  bin && cd model && chmod a+x ./train.v3.py && ./train.v3.py ../datasets/web/training_set ../bin && ./train.v3.py ../datasets/web/training_features ../bin 1
